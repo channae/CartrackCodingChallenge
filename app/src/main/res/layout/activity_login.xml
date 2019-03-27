@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    tools:context=".login.LoginActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/sign_in_background_image" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/login_container_horizontal_margin"
+            android:layout_marginTop="@dimen/login_container_vertical_margin"
+            android:layout_marginRight="@dimen/login_container_horizontal_margin"
+            android:layout_marginBottom="@dimen/login_container_vertical_margin"
+            android:background="@drawable/background_card_log_in"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_horizontal_double_margin"
+                android:gravity="center_horizontal"
+                android:text="@string/log_in_title"
+                android:textColor="@color/text_color_dark"
+                android:textSize="@dimen/text_size_xxlarge"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginStart="@dimen/activity_horizontal_double_margin"
+                android:layout_marginLeft="@dimen/activity_horizontal_double_margin"
+                android:layout_marginTop="@dimen/activity_horizontal_double_margin"
+                android:text="@string/username_label"
+                android:textColor="@color/text_color_lighter"
+                android:textSize="@dimen/text_size_large" />
+
+            <EditText
+                android:id="@+id/et_username"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/login_edit_text_height"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:background="@drawable/background_edit_text_log_in"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin" />
+
+            <TextView
+                android:id="@+id/tv_username_error"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:textColor="@color/text_color_error"
+                android:textSize="@dimen/text_size_medium" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginStart="@dimen/activity_horizontal_double_margin"
+                android:layout_marginLeft="@dimen/activity_horizontal_double_margin"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:text="@string/password_label"
+                android:textColor="@color/text_color_lighter"
+                android:textSize="@dimen/text_size_large" />
+
+            <EditText
+                android:id="@+id/et_password"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/login_edit_text_height"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                android:background="@drawable/background_edit_text_log_in"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin" />
+
+            <TextView
+                android:id="@+id/tv_password_error"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:textColor="@color/text_color_error"
+                android:textSize="@dimen/text_size_medium" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginStart="@dimen/activity_horizontal_double_margin"
+                android:layout_marginLeft="@dimen/activity_horizontal_double_margin"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:text="@string/country_label"
+                android:textColor="@color/text_color_lighter"
+                android:textSize="@dimen/text_size_large" />
+
+            <TextView
+                android:id="@+id/tv_country"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/login_edit_text_height"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                android:background="@drawable/background_edit_text_log_in"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:textColor="@color/text_color_light"
+                android:textSize="@dimen/text_size_large" />
+
+            <Button
+                android:id="@+id/action_login"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/login_button_height"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/activity_horizontal_double_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_marginBottom="@dimen/activity_vertical_half_margin"
+                android:background="@drawable/background_button_log_in"
+                android:text="@string/log_in_button"
+                android:textAllCaps="false"
+                android:textColor="@color/text_color_white"
+                android:textSize="@dimen/text_size_mlarge" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

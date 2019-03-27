@@ -3,4 +3,25 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="color_separator">#0b000000</color>
+    <color name="color_separator_dark">#39000000</color>
+
+    <color name="button_disabled_state_color">#9d9e9f</color>
+
+    <color name="text_color_white">#ffffff</color>
+    <color name="text_color_dark">#000000</color>
+    <color name="text_color_light">#d6000000</color>
+    <color name="text_color_lighter">#73000000</color>
+    <color name="text_color_theme">#FF2d55</color>
+    <color name="text_color_blue">#28368e</color>
+    <color name="text_color_light_blue">#297efd</color>
+    <color name="text_color_error">#ed1c24</color>
+    <color name="text_color_gray">#AAABAB</color>
+
+    <!-- Login Screen -->
+    <color name="login_container_background_color">#ffffff</color>
+    <color name="login_edit_text_background_color">#f5f5f5</color>
+    <color name="login_button_background_color">#FF2d55</color>
+
 </resources>

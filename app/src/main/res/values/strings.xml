@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Cartrack Coding Challenge</string>
+
+    <!-- Log In Screen -->
+    <string name="log_in_title">Log In</string>
+    <string name="log_in_button">Log In</string>
+    <string name="username_label">Username</string>
+    <string name="password_label">Password</string>
+    <string name="country_label">Country</string>
 </resources>
