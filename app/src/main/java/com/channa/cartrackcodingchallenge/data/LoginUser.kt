@@ -9,6 +9,6 @@ class LoginUser(private val username: String, private val password: String, priv
         get() = password.length > 5 && !password.isBlank()
 
     val isCountryValid: Boolean
-        get() = false
+        get() = !country.isBlank()
 
 }
