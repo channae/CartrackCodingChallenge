@@ -22,6 +22,9 @@ import javax.inject.Inject
 
 class LoginActivity : AppCompatActivity() {
 
+    @BindView(R.id.ll_login_container)
+    lateinit var loginContainerLinearLayout: LinearLayout
+
     @BindView(R.id.et_username)
     lateinit var usernameEditText: EditText
 
@@ -48,6 +51,9 @@ class LoginActivity : AppCompatActivity() {
     @BindView(R.id.tv_password_error)
     lateinit var passwordErrorTextView: TextView
 
+    @BindView(R.id.tv_country_error)
+    lateinit var countryErrorTextView: TextView
+
     @Inject
     lateinit var loginUserManager: LoginUserManager
 
@@ -72,12 +78,12 @@ class LoginActivity : AppCompatActivity() {
         flagContainerLinearLayout.setOnClickListener(View.OnClickListener {
 
             val builder = CountryPicker.Builder().with(this)
-                .listener(OnCountryPickerListener { country ->
-                    run {
-                        countryTextView.text = country.name
-                        countryFlagImageView.setImageResource(country.flag)
-                    }
-                }).build().showDialog(this)
+                    .listener(OnCountryPickerListener { country ->
+                        run {
+                            countryTextView.text = country.name
+                            countryFlagImageView.setImageResource(country.flag)
+                        }
+                    }).build().showDialog(this)
         })
 
         loginButton.setOnClickListener(View.OnClickListener {
