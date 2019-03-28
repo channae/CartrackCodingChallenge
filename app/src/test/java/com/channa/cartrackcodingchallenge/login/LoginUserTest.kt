@@ -7,7 +7,7 @@ import org.junit.Test
 
 class LoginUserTest {
 
-    lateinit var loginUser: LoginUser
+    private lateinit var loginUser: LoginUser
 
     @Test
     fun isUsernameValid_CorrectUsername_ReturnsTrue() {
