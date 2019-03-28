@@ -1,39 +1,115 @@
 package com.channa.cartrackcodingchallenge.login
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProviders
+import butterknife.BindView
+import butterknife.ButterKnife
+import com.channa.cartrackcodingchallenge.MyApplication
 import com.channa.cartrackcodingchallenge.R
+import com.channa.cartrackcodingchallenge.data.LoginUser
+import com.channa.cartrackcodingchallenge.data.source.LoginUserManager
 import com.mukesh.countrypicker.CountryPicker
 import com.mukesh.countrypicker.OnCountryPickerListener
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 
 class LoginActivity : AppCompatActivity() {
 
-    lateinit var flagContainerLinearLayout: LinearLayout
+    @BindView(R.id.et_username)
+    lateinit var usernameEditText: EditText
+
+    @BindView(R.id.et_password)
+    lateinit var passwordEditText: EditText
+
+    @BindView(R.id.tv_country)
     lateinit var countryTextView: TextView
+
+    @BindView(R.id.btn_login)
+    lateinit var loginButton: Button
+
+    @BindView(R.id.iv_flag)
     lateinit var countryFlagImageView: ImageView
+
+    @BindView(R.id.ll_flag_container)
+    lateinit var flagContainerLinearLayout: LinearLayout
+
+    // Error displays
+
+    @BindView(R.id.tv_username_error)
+    lateinit var usernameErrorTextView: TextView
+
+    @BindView(R.id.tv_password_error)
+    lateinit var passwordErrorTextView: TextView
+
+    @Inject
+    lateinit var loginUserManager: LoginUserManager
+
+    companion object {
+        private const val TAG = "LoginActivity"
+
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(com.channa.cartrackcodingchallenge.R.layout.activity_login)
+        ButterKnife.bind(this)
 
-        flagContainerLinearLayout = findViewById(R.id.ll_flag_container)
-        countryTextView = findViewById(R.id.tv_country)
-        countryFlagImageView = findViewById(R.id.iv_flag)
+        (application as MyApplication).applicationComponent?.inject(this)
+
+        val loginViewModel = ViewModelProviders.of(this).get(LoginViewModel::class.java)
+        loginViewModel.init(loginUserManager)
+
+
+        loginViewModel.insertNewLoginUser(LoginUser("user123", "user123", "Singapore"))
 
         flagContainerLinearLayout.setOnClickListener(View.OnClickListener {
 
             val builder = CountryPicker.Builder().with(this)
-                    .listener(OnCountryPickerListener { country ->
-                        run {
-                            countryTextView.text = country.name
-                            countryFlagImageView.setImageResource(country.flag)
-                        }
-                    }).build().showDialog(this)
+                .listener(OnCountryPickerListener { country ->
+                    run {
+                        countryTextView.text = country.name
+                        countryFlagImageView.setImageResource(country.flag)
+                    }
+                }).build().showDialog(this)
+        })
+
+        loginButton.setOnClickListener(View.OnClickListener {
+
+            GlobalScope.launch(Dispatchers.Main) {
+
+                var isInputValidationError: Boolean = false
+
+                var username = usernameEditText.text.toString()
+                var password = passwordEditText.text.toString()
+                var country = countryTextView.text.toString()
+
+                var loginUser = LoginUser(username, password, country)
+
+                if (!loginUser.isUsernameValid) {
+                    usernameErrorTextView.text = "Invalid username"
+                    isInputValidationError = true
+                }
+
+                if (!loginUser.isPasswordValid) {
+                    passwordErrorTextView.text = "Invalid password"
+                    isInputValidationError = true
+                }
+
+                if (!isInputValidationError) {
+                    if (loginViewModel.authenticateUser(loginUser)) {
+                        Log.d(TAG, "User logged In")
+                    } else {
+                        Log.d(TAG, "Username or password is incorrect")
+                    }
+                }
+            }
         })
     }
 

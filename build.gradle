@@ -28,6 +28,10 @@ task clean(type: Delete) {
 }
 
 ext {
+    archLifecycleVersion = '2.0.0'
+    butterKnifeVersion = '10.1.0'
     daggerVersion = '2.15'
     retrofitVersion = '2.4.0'
+    roomVersion = '2.0.0'
+    coroutineVersion = '1.0.1'
 }

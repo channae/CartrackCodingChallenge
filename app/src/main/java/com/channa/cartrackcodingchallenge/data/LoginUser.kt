@@ -1,6 +1,10 @@
 package com.channa.cartrackcodingchallenge.data
 
-class LoginUser(private val username: String, private val password: String, private val country: String) {
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity
+class LoginUser(@field:PrimaryKey val username: String, val password: String, val country: String) {
 
     val isUsernameValid: Boolean
         get() = !username.isBlank()
