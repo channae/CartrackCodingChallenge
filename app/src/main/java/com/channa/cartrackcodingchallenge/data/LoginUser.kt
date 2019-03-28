@@ -3,9 +3,9 @@ package com.channa.cartrackcodingchallenge.data
 class LoginUser(private val username: String, private val password: String) {
 
     val isUsernameValid: Boolean
-        get() = false
+        get() = !username.isBlank()
 
     val isPasswordValid: Boolean
-        get() = false
+        get() = password.length > 5 && !password.isBlank()
 
 }
