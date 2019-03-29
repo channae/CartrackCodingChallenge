@@ -1,5 +1,6 @@
 package com.channa.cartrackcodingchallenge.login
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.*
@@ -11,6 +12,7 @@ import com.channa.cartrackcodingchallenge.MyApplication
 import com.channa.cartrackcodingchallenge.R
 import com.channa.cartrackcodingchallenge.data.LoginUser
 import com.channa.cartrackcodingchallenge.data.source.LoginUserManager
+import com.channa.cartrackcodingchallenge.user_detail.UserListActivity
 import com.channa.cartrackcodingchallenge.utils.CustomAnimations
 import com.mukesh.countrypicker.CountryPicker
 import com.mukesh.countrypicker.OnCountryPickerListener
@@ -122,6 +124,10 @@ class LoginActivity : AppCompatActivity() {
                     clearInputValidationErrors()
                     if (loginViewModel.authenticateUser(loginUser)) {
                         Toast.makeText(applicationContext, "Login Successful!", Toast.LENGTH_LONG).show()
+
+                        val intent = Intent(this@LoginActivity, UserListActivity::class.java)
+                        startActivity(intent)
+
                     } else {
                         Toast.makeText(
                             applicationContext,

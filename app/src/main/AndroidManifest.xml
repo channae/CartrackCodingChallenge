@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.channa.cartrackcodingchallenge">
+        package="com.channa.cartrackcodingchallenge">
 
     <application
             android:name=".MyApplication"
@@ -11,16 +11,28 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity
-            android:name=".login.LoginActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="stateHidden|adjustPan">
+                android:name=".user_detail.UserListActivity"
+                android:label="@string/title_user_list"
+                android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+                android:name=".user_detail.UserDetailActivity"
+                android:label="@string/title_user_detail"
+                android:parentActivityName=".user_detail.UserListActivity"
+                android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.channa.cartrackcodingchallenge.user_detail.UserListActivity" />
+        </activity>
+        <activity
+                android:name=".login.LoginActivity"
+                android:theme="@style/AppTheme.NoActionBar"
+                android:windowSoftInputMode="stateHidden|adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>
