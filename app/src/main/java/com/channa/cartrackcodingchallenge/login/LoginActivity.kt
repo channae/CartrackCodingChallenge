@@ -16,7 +16,7 @@ import com.channa.cartrackcodingchallenge.data.source.LoginUserManager
 import com.channa.cartrackcodingchallenge.user_detail.UserListActivity
 import com.channa.cartrackcodingchallenge.utils.CustomAnimations
 import com.mukesh.countrypicker.CountryPicker
-import com.mukesh.countrypicker.OnCountryPickerListener
+import com.mukesh.countrypicker.listeners.OnCountryPickerListener
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
