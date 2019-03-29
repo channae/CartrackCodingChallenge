@@ -1,7 +1,6 @@
 package com.channa.cartrackcodingchallenge.login
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -12,6 +11,7 @@ import com.channa.cartrackcodingchallenge.MyApplication
 import com.channa.cartrackcodingchallenge.R
 import com.channa.cartrackcodingchallenge.data.LoginUser
 import com.channa.cartrackcodingchallenge.data.source.LoginUserManager
+import com.channa.cartrackcodingchallenge.utils.CustomAnimations
 import com.mukesh.countrypicker.CountryPicker
 import com.mukesh.countrypicker.OnCountryPickerListener
 import kotlinx.coroutines.Dispatchers
@@ -78,12 +78,12 @@ class LoginActivity : AppCompatActivity() {
         flagContainerLinearLayout.setOnClickListener(View.OnClickListener {
 
             val builder = CountryPicker.Builder().with(this)
-                    .listener(OnCountryPickerListener { country ->
-                        run {
-                            countryTextView.text = country.name
-                            countryFlagImageView.setImageResource(country.flag)
-                        }
-                    }).build().showDialog(this)
+                .listener(OnCountryPickerListener { country ->
+                    run {
+                        countryTextView.text = country.name
+                        countryFlagImageView.setImageResource(country.flag)
+                    }
+                }).build().showDialog(this)
         })
 
         loginButton.setOnClickListener(View.OnClickListener {
@@ -99,24 +99,47 @@ class LoginActivity : AppCompatActivity() {
                 var loginUser = LoginUser(username, password, country)
 
                 if (!loginUser.isUsernameValid) {
-                    usernameErrorTextView.text = "Invalid username"
+                    usernameErrorTextView.text = "Username cannot be empty"
                     isInputValidationError = true
-                }
+                } else
+                    usernameErrorTextView.text = ""
+
 
                 if (!loginUser.isPasswordValid) {
-                    passwordErrorTextView.text = "Invalid password"
+                    passwordErrorTextView.text = "Password cannot be empty"
                     isInputValidationError = true
-                }
+                } else
+                    passwordErrorTextView.text = ""
+
+                if (!loginUser.isCountryValid) {
+                    countryErrorTextView.text = "Country cannot be empty"
+                    isInputValidationError = true
+                } else
+                    countryErrorTextView.text = ""
+
 
                 if (!isInputValidationError) {
+                    clearInputValidationErrors()
                     if (loginViewModel.authenticateUser(loginUser)) {
-                        Log.d(TAG, "User logged In")
+                        Toast.makeText(applicationContext, "Login Successful!", Toast.LENGTH_LONG).show()
                     } else {
-                        Log.d(TAG, "Username or password is incorrect")
+                        Toast.makeText(
+                            applicationContext,
+                            "Login Failed, Incorrect user credentials!",
+                            Toast.LENGTH_LONG
+                        )
+                            .show()
+                        CustomAnimations.shake(applicationContext, loginContainerLinearLayout)
                     }
                 }
             }
         })
+    }
+
+    fun clearInputValidationErrors() {
+        usernameErrorTextView.text = ""
+        passwordErrorTextView.text = ""
+        countryErrorTextView.text = ""
     }
 
 }

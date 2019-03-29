@@ -10,7 +10,7 @@ class LoginUserTest {
     private lateinit var loginUser: LoginUser
 
     @Test
-    fun isUsernameValid_CorrectUsername_ReturnsTrue() {
+    fun isUsernameValid_UsernameProvided_ReturnsTrue() {
         loginUser = LoginUser("user123", "user123", "Singapore")
         assertTrue(loginUser.isUsernameValid)
     }
@@ -22,15 +22,9 @@ class LoginUserTest {
     }
 
     @Test
-    fun isPasswordValid_CorrectPassword_ReturnsTrue() {
+    fun isPasswordValid_PasswordProvided_ReturnsTrue() {
         loginUser = LoginUser("user123", "user123", "Singapore")
         assertTrue(loginUser.isPasswordValid)
-    }
-
-    @Test
-    fun isPasswordValid_LengthLessThan5Password_ReturnsFalse() {
-        loginUser = LoginUser("user123", "user", "Singapore")
-        assertFalse(loginUser.isPasswordValid)
     }
 
     @Test
@@ -40,13 +34,13 @@ class LoginUserTest {
     }
 
     @Test
-    fun isLocationValid_CorrectCountry_ReturnsTrue() {
+    fun isCountryValid_CountryProvided_ReturnsTrue() {
         loginUser = LoginUser("user123", "user123", "Singapore")
         assertTrue(loginUser.isCountryValid)
     }
 
     @Test
-    fun isLocationValid_BlankCountry_ReturnsFalse() {
+    fun isCountryValid_BlankCountry_ReturnsFalse() {
         loginUser = LoginUser("user123", "user123", "      ")
         assertFalse(loginUser.isCountryValid)
     }
