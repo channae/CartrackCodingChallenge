@@ -4,10 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.*
-import androidx.appcompat.app.AppCompatActivity
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.lifecycle.ViewModelProviders
 import butterknife.BindView
 import butterknife.ButterKnife
+import com.channa.cartrackcodingchallenge.BaseActivity
 import com.channa.cartrackcodingchallenge.MyApplication
 import com.channa.cartrackcodingchallenge.R
 import com.channa.cartrackcodingchallenge.data.LoginUser
@@ -22,7 +23,10 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : BaseActivity() {
+
+    @BindView(R.id.parent)
+    lateinit var coordinatorLayout: CoordinatorLayout
 
     @BindView(R.id.ll_login_container)
     lateinit var loginContainerLinearLayout: LinearLayout
@@ -82,8 +86,15 @@ class LoginActivity : AppCompatActivity() {
             val builder = CountryPicker.Builder().with(this)
                 .listener(OnCountryPickerListener { country ->
                     run {
+
+                        usernameEditText.clearFocus()
+                        passwordEditText.clearFocus()
+
+
+                        hideKeyboard(this)
                         countryTextView.text = country.name
                         countryFlagImageView.setImageResource(country.flag)
+
                     }
                 }).build().showDialog(this)
         })
@@ -123,23 +134,19 @@ class LoginActivity : AppCompatActivity() {
                 if (!isInputValidationError) {
                     clearInputValidationErrors()
                     if (loginViewModel.authenticateUser(loginUser)) {
-                        Toast.makeText(applicationContext, "Login Successful!", Toast.LENGTH_LONG).show()
 
                         val intent = Intent(this@LoginActivity, UserListActivity::class.java)
                         startActivity(intent)
 
                     } else {
-                        Toast.makeText(
-                            applicationContext,
-                            "Login Failed, Incorrect user credentials!",
-                            Toast.LENGTH_LONG
-                        )
-                            .show()
+                        showSnackBar(coordinatorLayout, "Login Failed, Incorrect user credentials!")
                         CustomAnimations.shake(applicationContext, loginContainerLinearLayout)
                     }
                 }
             }
         })
+
+        coordinatorLayout.setOnClickListener(View.OnClickListener { hideKeyboard(this) })
     }
 
     fun clearInputValidationErrors() {
