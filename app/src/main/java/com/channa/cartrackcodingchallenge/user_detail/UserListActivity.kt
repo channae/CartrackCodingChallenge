@@ -21,6 +21,7 @@ import kotlinx.android.synthetic.main.user_list.*
 import kotlinx.android.synthetic.main.user_list_content.view.*
 import javax.inject.Inject
 
+
 /**
  * An activity representing a list of Pings. This activity
  * has different presentations for handset and tablet-size devices. On
@@ -80,19 +81,19 @@ class UserListActivity : AppCompatActivity() {
 
     private fun setupRecyclerView(recyclerView: RecyclerView) {
         recyclerView.adapter =
-            SimpleItemRecyclerViewAdapter(
-                this,
-                DummyContent.ITEMS,
-                twoPane
-            )
+                SimpleItemRecyclerViewAdapter(
+                        this,
+                        DummyContent.ITEMS,
+                        twoPane
+                )
     }
 
     class SimpleItemRecyclerViewAdapter(
-        private val parentActivity: UserListActivity,
-        private val values: List<DummyContent.DummyItem>,
-        private val twoPane: Boolean
+            private val parentActivity: UserListActivity,
+            private val values: List<DummyContent.DummyItem>,
+            private val twoPane: Boolean
     ) :
-        RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder>() {
+            RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder>() {
 
         private val onClickListener: View.OnClickListener
 
@@ -106,9 +107,9 @@ class UserListActivity : AppCompatActivity() {
                         }
                     }
                     parentActivity.supportFragmentManager
-                        .beginTransaction()
-                        .replace(R.id.user_detail_container, fragment)
-                        .commit()
+                            .beginTransaction()
+                            .replace(R.id.user_detail_container, fragment)
+                            .commit()
                 } else {
                     val intent = Intent(v.context, UserDetailActivity::class.java).apply {
                         putExtra(UserDetailFragment.ARG_ITEM_ID, item.id)
@@ -120,7 +121,7 @@ class UserListActivity : AppCompatActivity() {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
             val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.user_list_content, parent, false)
+                    .inflate(R.layout.user_list_content, parent, false)
             return ViewHolder(view)
         }
 
@@ -141,5 +142,9 @@ class UserListActivity : AppCompatActivity() {
             val idView: TextView = view.id_text
             val contentView: TextView = view.content
         }
+    }
+
+    override fun onBackPressed() {
+        moveTaskToBack(true)
     }
 }
