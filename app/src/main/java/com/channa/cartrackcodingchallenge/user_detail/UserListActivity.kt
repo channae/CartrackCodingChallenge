@@ -2,6 +2,7 @@ package com.channa.cartrackcodingchallenge.user_detail
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.RecyclerView
@@ -58,7 +59,10 @@ class UserListActivity : BaseActivity() {
             twoPane = true
         }
 
+        progress_bar.visibility = View.VISIBLE
+
         userListViewModel.getUsers().observe(this, Observer { userListWrapper ->
+            progress_bar.visibility = View.GONE
             if (userListWrapper.error == null) {
 
                 setupRecyclerView(rv_user_list, userListWrapper.userResponseList!!)
