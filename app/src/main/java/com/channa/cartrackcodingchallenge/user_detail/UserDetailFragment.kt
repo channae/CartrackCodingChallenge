@@ -78,6 +78,18 @@ class UserDetailFragment : Fragment(), OnMapReadyCallback {
             rootView.tv_address_street.text = it.address.street
             rootView.tv_address_city.text = it.address.city
             rootView.tv_address_zip_code.text = it.address.zipcode
+            rootView.tv_phone_number.text = it.getPhoneNumber
+
+            if (it.getPhoneNumberExtension != "N/A")
+                rootView.tv_phone_extension.text = it.getPhoneNumberExtension
+            else
+                rootView.tv_phone_extension.visibility = View.GONE
+
+            rootView.tv_website.text = it.website
+            rootView.tv_company_name.text = it.company.name
+            rootView.tv_company_catch_phrase.text = it.company.catchPhrase
+            rootView.tv_company_bs.text = it.company.bs
+
         }
 
         return rootView

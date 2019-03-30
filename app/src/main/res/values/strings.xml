@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Cartrack Coding Challenge</string>
 
-    <!-- Log In Screen -->
+    <!-- Log In Activity -->
     <string name="log_in_title">Log In</string>
     <string name="log_in_button">Log In</string>
     <string name="username_label">Username</string>
@@ -9,8 +9,20 @@
     <string name="country_label">Country</string>
 
 
-    <!-- User Screen -->
+    <!-- User List Activity -->
     <string name="title_user_list">Users</string>
+
+    <!-- User Detail Activity -->
     <string name="title_user_detail">User Detail</string>
+
+    <!-- User Detail Fragment -->
+    <string name="user_detail_name">Name</string>
+    <string name="user_detail_username">Username</string>
+    <string name="user_detail_email">Email</string>
+    <string name="user_detail_address">Address</string>
+    <string name="user_detail_location">Location</string>
+    <string name="user_detail_phone_number">Phone Number</string>
+    <string name="user_detail_website">Website</string>
+    <string name="user_detail_company">Company</string>
 
 </resources>

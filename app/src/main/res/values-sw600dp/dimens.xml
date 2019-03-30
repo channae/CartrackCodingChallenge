@@ -5,4 +5,5 @@
     <dimen name="login_container_horizontal_margin">256dp</dimen>
     <dimen name="login_container_vertical_margin">64dp</dimen>
     <dimen name="login_button_height">60dp</dimen>
+
 </resources>
