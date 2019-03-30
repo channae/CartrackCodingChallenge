@@ -20,135 +20,141 @@
             android:scaleType="centerCrop"
             android:src="@drawable/sign_in_background_image" />
 
-        <LinearLayout
-            android:id="@+id/ll_login_container"
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_marginLeft="@dimen/login_container_horizontal_margin"
-            android:layout_marginTop="@dimen/login_container_vertical_margin"
-            android:layout_marginRight="@dimen/login_container_horizontal_margin"
-            android:layout_marginBottom="@dimen/login_container_vertical_margin"
-            android:background="@drawable/background_card_log_in"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
+            android:layout_centerInParent="true">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/ll_login_container"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/activity_horizontal_double_margin"
+                android:layout_marginLeft="@dimen/login_container_horizontal_margin"
+                android:layout_marginTop="@dimen/login_container_vertical_margin"
+                android:layout_marginRight="@dimen/login_container_horizontal_margin"
+                android:layout_marginBottom="@dimen/login_container_vertical_margin"
+                android:background="@drawable/background_card_log_in"
                 android:gravity="center_horizontal"
-                android:text="@string/log_in_title"
-                android:textColor="@color/text_color_dark"
-                android:textSize="@dimen/text_size_xxlarge"
-                android:textStyle="bold" />
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_marginStart="@dimen/activity_horizontal_double_margin"
-                android:layout_marginLeft="@dimen/activity_horizontal_double_margin"
-                android:layout_marginTop="@dimen/activity_horizontal_double_margin"
-                android:text="@string/username_label"
-                android:textColor="@color/text_color_lighter"
-                android:textSize="@dimen/text_size_large" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/activity_horizontal_double_margin"
+                    android:gravity="center_horizontal"
+                    android:text="@string/log_in_title"
+                    android:textColor="@color/text_color_dark"
+                    android:textSize="@dimen/text_size_xxlarge"
+                    android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/et_username"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/login_edit_text_height"
-                android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                android:layout_marginRight="@dimen/activity_horizontal_margin"
-                android:background="@drawable/background_edit_text_log_in"
-                android:imeOptions="actionDone"
-                android:inputType="text"
-                android:maxLines="1"
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:paddingRight="@dimen/activity_horizontal_margin" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginStart="@dimen/activity_horizontal_double_margin"
+                    android:layout_marginLeft="@dimen/activity_horizontal_double_margin"
+                    android:layout_marginTop="@dimen/activity_horizontal_double_margin"
+                    android:text="@string/username_label"
+                    android:textColor="@color/text_color_lighter"
+                    android:textSize="@dimen/text_size_large" />
 
-            <TextView
-                android:id="@+id/tv_username_error"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                android:layout_marginRight="@dimen/activity_horizontal_margin"
-                android:textColor="@color/text_color_error"
-                android:textSize="@dimen/text_size_medium" />
+                <EditText
+                    android:id="@+id/et_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/login_edit_text_height"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:background="@drawable/background_edit_text_log_in"
+                    android:imeOptions="actionDone"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingRight="@dimen/activity_horizontal_margin" />
+
+                <TextView
+                    android:id="@+id/tv_username_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:textColor="@color/text_color_error"
+                    android:textSize="@dimen/text_size_medium" />
 
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_marginStart="@dimen/activity_horizontal_double_margin"
-                android:layout_marginLeft="@dimen/activity_horizontal_double_margin"
-                android:layout_marginTop="@dimen/activity_horizontal_margin"
-                android:text="@string/password_label"
-                android:textColor="@color/text_color_lighter"
-                android:textSize="@dimen/text_size_large" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginStart="@dimen/activity_horizontal_double_margin"
+                    android:layout_marginLeft="@dimen/activity_horizontal_double_margin"
+                    android:layout_marginTop="@dimen/activity_horizontal_margin"
+                    android:text="@string/password_label"
+                    android:textColor="@color/text_color_lighter"
+                    android:textSize="@dimen/text_size_large" />
 
-            <EditText
-                android:id="@+id/et_password"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/login_edit_text_height"
-                android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                android:layout_marginRight="@dimen/activity_horizontal_margin"
-                android:background="@drawable/background_edit_text_log_in"
-                android:imeOptions="actionDone"
-                android:inputType="textPassword"
-                android:maxLines="1"
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:paddingRight="@dimen/activity_horizontal_margin" />
+                <EditText
+                    android:id="@+id/et_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/login_edit_text_height"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:background="@drawable/background_edit_text_log_in"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingRight="@dimen/activity_horizontal_margin" />
 
-            <TextView
-                android:id="@+id/tv_password_error"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                android:layout_marginRight="@dimen/activity_horizontal_margin"
-                android:textColor="@color/text_color_error"
-                android:textSize="@dimen/text_size_medium" />
+                <TextView
+                    android:id="@+id/tv_password_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:textColor="@color/text_color_error"
+                    android:textSize="@dimen/text_size_medium" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_marginStart="@dimen/activity_horizontal_double_margin"
-                android:layout_marginLeft="@dimen/activity_horizontal_double_margin"
-                android:layout_marginTop="@dimen/activity_horizontal_margin"
-                android:text="@string/country_label"
-                android:textColor="@color/text_color_lighter"
-                android:textSize="@dimen/text_size_large" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginStart="@dimen/activity_horizontal_double_margin"
+                    android:layout_marginLeft="@dimen/activity_horizontal_double_margin"
+                    android:layout_marginTop="@dimen/activity_horizontal_margin"
+                    android:text="@string/country_label"
+                    android:textColor="@color/text_color_lighter"
+                    android:textSize="@dimen/text_size_large" />
 
-            <com.hbb20.CountryCodePicker
-                android:id="@+id/country_picker"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                android:layout_marginRight="@dimen/activity_horizontal_margin"
-                app:ccp_defaultNameCode="SG"
-                app:ccp_showFullName="true"
-                app:ccp_showNameCode="false"
-                app:ccp_showPhoneCode="false" />
+                <com.hbb20.CountryCodePicker
+                    android:id="@+id/country_picker"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    app:ccp_defaultNameCode="SG"
+                    app:ccp_showFullName="true"
+                    app:ccp_showNameCode="false"
+                    app:ccp_showPhoneCode="false" />
 
-            <Button
-                android:id="@+id/btn_login"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/login_button_height"
-                android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                android:layout_marginTop="@dimen/activity_horizontal_double_margin"
-                android:layout_marginRight="@dimen/activity_horizontal_margin"
-                android:layout_marginBottom="@dimen/activity_horizontal_double_margin"
-                android:background="@drawable/background_button_log_in_enabled"
-                android:text="@string/log_in_button"
-                android:textAllCaps="false"
-                android:textColor="@color/text_color_white"
-                android:textSize="@dimen/text_size_mlarge" />
+                <Button
+                    android:id="@+id/btn_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/login_button_height"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginTop="@dimen/activity_horizontal_double_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_horizontal_double_margin"
+                    android:background="@drawable/background_button_log_in_enabled"
+                    android:text="@string/log_in_button"
+                    android:textAllCaps="false"
+                    android:textColor="@color/text_color_white"
+                    android:textSize="@dimen/text_size_mlarge" />
 
-        </LinearLayout>
+            </LinearLayout>
+
+        </ScrollView>
 
 
     </RelativeLayout>
