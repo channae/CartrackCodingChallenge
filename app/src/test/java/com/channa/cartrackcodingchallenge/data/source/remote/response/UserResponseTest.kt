@@ -7,7 +7,7 @@ class UserResponseTest {
 
     private lateinit var userResponse: UserResponse
 
-    private val geoResponse = GeoResponse(-37.3159f, 81.1496f)
+    private val geoResponse = GeoResponse(-37.3159, 81.1496)
     private val addressResponse = AddressResponse("Kulas Light", "Apt. 556", "Gwenborough", "92998-3874", geoResponse)
     private val companyResponse =
         CompanyResponse("Romaguera-Crona", "Multi-layered client-server neural-net", "harness real-time e-markets")
