@@ -7,6 +7,10 @@
     <string name="username_label">Username</string>
     <string name="password_label">Password</string>
     <string name="country_label">Country</string>
+
+
+    <!-- User Screen -->
     <string name="title_user_list">Users</string>
     <string name="title_user_detail">User Detail</string>
+
 </resources>

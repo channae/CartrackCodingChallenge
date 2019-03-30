@@ -8,6 +8,7 @@ import androidx.core.app.NavUtils
 import com.channa.cartrackcodingchallenge.R
 import kotlinx.android.synthetic.main.activity_user_detail.*
 
+
 /**
  * An activity representing a single User detail screen. This
  * activity is only used on narrow width devices. On tablet-size devices,
@@ -18,7 +19,7 @@ class UserDetailActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_user_detail)
+        setContentView(com.channa.cartrackcodingchallenge.R.layout.activity_user_detail)
         setSupportActionBar(detail_toolbar)
 
         // Show the Up button in the action bar.
@@ -38,9 +39,10 @@ class UserDetailActivity : AppCompatActivity() {
             // using a fragment transaction.
             val fragment = UserDetailFragment().apply {
                 arguments = Bundle().apply {
-                    putString(
-                            UserDetailFragment.ARG_ITEM_ID,
-                            intent.getStringExtra(UserDetailFragment.ARG_ITEM_ID))
+                    putParcelable(
+                            UserDetailFragment.BUNDLE_KEY_USER,
+                            intent.getParcelableExtra(UserDetailFragment.BUNDLE_KEY_USER)
+                    )
                 }
             }
 
@@ -65,4 +67,5 @@ class UserDetailActivity : AppCompatActivity() {
                 }
                 else -> super.onOptionsItemSelected(item)
             }
+
 }

@@ -1,15 +1,19 @@
 package com.channa.cartrackcodingchallenge.data.source.remote.response
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 class UserResponse(
-    val id: Int,
-    val name: String,
-    val username: String,
-    val email: String,
-    val address: AddressResponse,
-    private val phone: String,
-    val website: String,
-    val company: CompanyResponse
-) {
+        val id: Int,
+        val name: String,
+        val username: String,
+        val email: String,
+        val address: AddressResponse,
+        private val phone: String,
+        val website: String,
+        val company: CompanyResponse
+) : Parcelable {
 
     val getPhoneNumber: String
         get() {

@@ -1,3 +1,7 @@
 package com.channa.cartrackcodingchallenge.data.source.remote.response
 
-class GeoResponse(private val lat: Float, private val lng: Float)
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
+class GeoResponse(val lat: Double, val lng: Double) : Parcelable

@@ -1,9 +1,13 @@
 package com.channa.cartrackcodingchallenge.data.source.remote.response
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 class AddressResponse(
-    private val street: String,
-    private val suite: String,
-    private val city: String,
-    private val zipcode: String,
-    private val geo: GeoResponse
-)
+        val street: String,
+        val suite: String,
+        val city: String,
+        val zipcode: String,
+        val geo: GeoResponse
+) : Parcelable
