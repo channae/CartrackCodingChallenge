@@ -2,10 +2,10 @@ package com.channa.cartrackcodingchallenge.user_detail
 
 import android.os.Bundle
 import android.util.Log
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.RecyclerView
+import com.channa.cartrackcodingchallenge.BaseActivity
 import com.channa.cartrackcodingchallenge.MyApplication
 import com.channa.cartrackcodingchallenge.R
 import com.channa.cartrackcodingchallenge.data.source.UserRepository
@@ -23,7 +23,7 @@ import javax.inject.Inject
  * item details. On tablets, the activity presents the list of items and
  * item details side-by-side using two vertical panes.
  */
-class UserListActivity : AppCompatActivity() {
+class UserListActivity : BaseActivity() {
 
     companion object {
         private const val TAG = "UserListActivity"
@@ -58,17 +58,22 @@ class UserListActivity : AppCompatActivity() {
             twoPane = true
         }
 
-        userListViewModel.getUsers().observe(this, Observer {
-            if (it.error == null) {
+        userListViewModel.getUsers().observe(this, Observer { userListWrapper ->
+            if (userListWrapper.error == null) {
 
-                setupRecyclerView(rv_user_list, it.userResponseList!!)
+                setupRecyclerView(rv_user_list, userListWrapper.userResponseList!!)
 
-                it.userResponseList?.forEach { userResponse ->
+                userListWrapper.userResponseList?.forEach { userResponse ->
                     Log.d(TAG, "UserListActivity getUsersSuccess: ${userResponse.name}")
 
                 }
-            } else
-                Log.e(TAG, "UserListActivity getUsersError: ${it.error}")
+            } else {
+                Log.e(TAG, "UserListActivity getUsersError: ${userListWrapper.error}")
+
+                userListWrapper.error?.let {
+                    showSnackBar(cl_parent, it)
+                }
+            }
         })
 
     }

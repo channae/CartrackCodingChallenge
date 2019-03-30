@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.channa.cartrackcodingchallenge.R
 import com.channa.cartrackcodingchallenge.data.source.remote.response.UserResponse
-import kotlinx.android.synthetic.main.user_list_content.view.*
+import kotlinx.android.synthetic.main.user_list_item.view.*
 
 class UserRecyclerViewAdapter(
         private val parentActivity: UserListActivity,
@@ -43,7 +43,7 @@ class UserRecyclerViewAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.user_list_content, parent, false)
+                .inflate(R.layout.user_list_item, parent, false)
         return ViewHolder(view)
     }
 

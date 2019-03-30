@@ -33,17 +33,4 @@ class LoginUserTest {
         assertFalse(loginUser.isPasswordValid)
     }
 
-    @Test
-    fun isCountryValid_CountryProvided_ReturnsTrue() {
-        loginUser = LoginUser("user123", "user123", "Singapore")
-        assertTrue(loginUser.isCountryValid)
-    }
-
-    @Test
-    fun isCountryValid_BlankCountry_ReturnsFalse() {
-        loginUser = LoginUser("user123", "user123", "      ")
-        assertFalse(loginUser.isCountryValid)
-    }
-
-
 }

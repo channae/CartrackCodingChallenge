@@ -68,8 +68,7 @@ class UserDetailFragment : Fragment(), OnMapReadyCallback {
         mapView.onCreate(savedInstanceState)
         mapView.getMapAsync(this) //this is important
 
-
-        // Show the dummy content as text in a TextView.
+        //
         userResponse?.let {
             rootView.tv_name.text = it.name
             rootView.tv_username.text = it.username

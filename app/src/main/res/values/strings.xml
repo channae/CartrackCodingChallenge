@@ -7,6 +7,8 @@
     <string name="username_label">Username</string>
     <string name="password_label">Password</string>
     <string name="country_label">Country</string>
+    <string name="username_error_username_cannot_be_empty">*Username cannot be empty</string>
+    <string name="password_error_password_cannot_be_empty">*Password cannot be empty</string>
 
 
     <!-- User List Activity -->

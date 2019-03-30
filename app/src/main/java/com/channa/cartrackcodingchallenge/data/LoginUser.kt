@@ -12,7 +12,4 @@ class LoginUser(@field:PrimaryKey val username: String, val password: String, va
     val isPasswordValid: Boolean
         get() = !password.isBlank()
 
-    val isCountryValid: Boolean
-        get() = !country.isBlank()
-
 }

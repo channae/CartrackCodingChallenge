@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cl_parent"
     android:layout_width="match_parent"
@@ -122,49 +123,16 @@
                 android:textColor="@color/text_color_lighter"
                 android:textSize="@dimen/text_size_large" />
 
-            <LinearLayout
-                android:id="@+id/ll_flag_container"
+            <com.hbb20.CountryCodePicker
+                android:id="@+id/country_picker"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
                 android:layout_marginRight="@dimen/activity_horizontal_margin"
-                android:clickable="true"
-                android:focusable="true"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/iv_flag"
-                    android:layout_width="@dimen/login_flag_image_view_width"
-                    android:layout_height="@dimen/login_flag_image_view_height"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginRight="@dimen/activity_horizontal_quart_margin"
-                    android:background="@drawable/background_edit_text_log_in" />
-
-                <TextView
-                    android:id="@+id/tv_country"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/login_edit_text_height"
-                    android:background="@drawable/background_edit_text_log_in"
-                    android:gravity="center_vertical"
-                    android:maxLines="1"
-                    android:paddingLeft="@dimen/activity_horizontal_margin"
-                    android:paddingRight="@dimen/activity_horizontal_margin"
-                    android:textColor="@color/text_color_light"
-                    android:textSize="@dimen/text_size_large" />
-
-
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/tv_country_error"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                android:layout_marginRight="@dimen/activity_horizontal_margin"
-                android:textColor="@color/text_color_error"
-                android:textSize="@dimen/text_size_medium" />
-
+                app:ccp_defaultNameCode="SG"
+                app:ccp_showFullName="true"
+                app:ccp_showNameCode="false"
+                app:ccp_showPhoneCode="false" />
 
             <Button
                 android:id="@+id/btn_login"
